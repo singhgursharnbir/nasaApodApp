@@ -10,21 +10,26 @@ class ImageDescription extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col-md-12">
-          <div className="row justify-content-center mt-2">
-            <h2>{this.props.apodPhotos.title}</h2>
+        {!this.props.error ? (
+          <div className="col-md-12">
+            <div className="row justify-content-center mt-2">
+              <h2>{this.props.apodPhotos.title}</h2>
+            </div>
+            <div className="row justify-content-center">
+              <p>{this.props.apodPhotos.explanation}</p>
+            </div>
           </div>
-          <div className="row justify-content-center">
-            <p>{this.props.apodPhotos.explanation}</p>
-          </div>
-        </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    apodPhotos: state.GetApodImage.image
+    apodPhotos: state.GetApodImage.image,
+    error: state.GetApodImage.error
   };
 };
 

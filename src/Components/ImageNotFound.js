@@ -6,7 +6,7 @@ class ImageNotFound extends React.Component {
     return (
       <div className="row">
         <img
-          className="d-block w-100 sliderImage mb-4 mt-2"
+          className="d-block w-100 sliderImage"
           src={notFoundImage}
           alt="notFound"
         />

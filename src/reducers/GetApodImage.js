@@ -29,7 +29,8 @@ export default function(state = intialState, action) {
         image: action.payload,
         date: action.date,
         loading: true,
-        showModal: false
+        showModal: false,
+        error: false
       };
     case ADD_ERROR:
       return {
@@ -43,7 +44,6 @@ export default function(state = intialState, action) {
       };
 
     case SHOW_MODAL:
-      console.log(action.showModalState);
       return {
         ...state,
         showModal: action.showModalState

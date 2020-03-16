@@ -9,12 +9,10 @@ class ModalComponent extends React.Component {
     this.props.showModal(false);
   }
   closePopup = e => {
-    console.log("ca;;ed");
     console.log(this.props.showModal(false));
   };
 
   render() {
-    console.log(this.props.showThisModal);
     return (
       <Modal show={this.props.showThisModal}>
         <Modal.Header>
@@ -22,7 +20,9 @@ class ModalComponent extends React.Component {
         </Modal.Header>
         <Modal.Body>{this.props.modalBody}</Modal.Body>
         <Modal.Footer>
-          <button onClick={this.closePopup}>ok</button>
+          <button className="btn btn-secondary" onClick={this.closePopup}>
+            Ok
+          </button>
         </Modal.Footer>
       </Modal>
     );
@@ -30,7 +30,6 @@ class ModalComponent extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.GetApodImage.showModal);
   return {
     showThisModal: state.GetApodImage.showModal
   };
