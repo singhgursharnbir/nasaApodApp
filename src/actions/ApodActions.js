@@ -27,6 +27,8 @@ export const loaded = () => dispatch => {
 };
 
 export const showModal = showModalState => dispatch => {
+  console.log("action called");
+  console.log(showModalState);
   dispatch({
     type: SHOW_MODAL,
     showModalState: showModalState

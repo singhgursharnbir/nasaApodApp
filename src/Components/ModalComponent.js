@@ -9,16 +9,18 @@ class ModalComponent extends React.Component {
     this.props.showModal(false);
   }
   closePopup = e => {
-    this.props.showModal(false);
+    console.log("ca;;ed");
+    console.log(this.props.showModal(false));
   };
 
   render() {
+    console.log(this.props.showThisModal);
     return (
-      <Modal show={this.props.showModal}>
+      <Modal show={this.props.showThisModal}>
         <Modal.Header>
-          <Modal.Title>Hi</Modal.Title>
+          <Modal.Title>{this.props.modalTitle}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>The body</Modal.Body>
+        <Modal.Body>{this.props.modalBody}</Modal.Body>
         <Modal.Footer>
           <button onClick={this.closePopup}>ok</button>
         </Modal.Footer>
@@ -28,8 +30,9 @@ class ModalComponent extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state.GetApodImage.showModal);
   return {
-    showModal: state.GetApodImage.showModal
+    showThisModal: state.GetApodImage.showModal
   };
 };
 

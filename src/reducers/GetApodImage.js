@@ -19,7 +19,7 @@ const intialState = {
   date: "",
   error: "",
   loading: true,
-  showModal: false
+  showModal: ""
 };
 
 export default function(state = intialState, action) {
@@ -43,6 +43,7 @@ export default function(state = intialState, action) {
       };
 
     case SHOW_MODAL:
+      console.log(action.showModalState);
       return {
         ...state,
         showModal: action.showModalState

@@ -89,7 +89,7 @@ class ImageComponent extends React.Component {
                     ></iframe>
                   ) : (
                     <img
-                      className="d-block w-100 sliderImage"
+                      className="d-block w-100 "
                       src={this.props.apodPhotos.hdurl}
                       alt="main"
                     />
@@ -115,7 +115,10 @@ class ImageComponent extends React.Component {
           </div>
         </div>
 
-        <Modal />
+        <Modal
+          modalTitle="I am really Sorry!!"
+          modalBody="I cannot fetch image from future yet..."
+        />
       </div>
     );
   }
