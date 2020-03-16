@@ -3,19 +3,16 @@ import Modal from "./ModalComponent";
 
 import { formatDate } from "../common";
 import { connect } from "react-redux";
-import { fetchApodImage, loaded, showModal } from "../actions/ApodActions";
+import { fetchApodImage, showModal } from "../actions/ApodActions";
 
 import PrevIcon from "./prevIcon";
 import NextIcon from "./nextIcon";
 import ImageNotFound from "./ImageNotFound";
+import PickDate from "./pickDate";
 
 class ImageComponent extends React.Component {
   componentDidMount() {
     this.props.fetchApodImage(formatDate(new Date()));
-  }
-
-  componentDidUpdate() {
-    this.props.loaded();
   }
   render() {
     return (
@@ -23,31 +20,23 @@ class ImageComponent extends React.Component {
         <div className="col-md-12">
           <div className="row">
             <PrevIcon />
-            <div className="col-md-10 card" style={{ padding: 0 }}>
+            <div className="col-md-10 " style={{ padding: 0 }}>
+              <PickDate />
               {!this.props.error ? (
-                <div>
+                <div className="col-md-12">
                   {this.props.apodPhotos.media_type === "video" ? (
-                    ""
+                    <iframe
+                      className="d-block w-100 sliderImage"
+                      title="apodYoutube"
+                      src={this.props.apodPhotos.url}
+                    ></iframe>
                   ) : (
-                    <div className="card-img-overlay text-white">
-                      {this.props.apodPhotos.date}
-                    </div>
+                    <img
+                      className="d-block w-100 "
+                      src={this.props.apodPhotos.hdurl}
+                      alt="main"
+                    />
                   )}
-                  <div>
-                    {this.props.apodPhotos.media_type === "video" ? (
-                      <iframe
-                        className="d-block w-100 sliderImage"
-                        title="apodYoutube"
-                        src={this.props.apodPhotos.url}
-                      ></iframe>
-                    ) : (
-                      <img
-                        className="d-block w-100 "
-                        src={this.props.apodPhotos.hdurl}
-                        alt="main"
-                      />
-                    )}
-                  </div>
                 </div>
               ) : (
                 <ImageNotFound />
@@ -70,10 +59,10 @@ const mapStateToProps = state => {
   return {
     apodPhotos: state.GetApodImage.image,
     error: state.GetApodImage.error,
-    loaded: state.GetApodImage.loaded
+    date: state.GetApodImage.date
   };
 };
 
-export default connect(mapStateToProps, { fetchApodImage, loaded, showModal })(
+export default connect(mapStateToProps, { fetchApodImage, showModal })(
   ImageComponent
 );

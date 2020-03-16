@@ -6,10 +6,8 @@ class ApodMain extends React.Component {
   render() {
     return (
       <div className="container">
-        <div>
-          <ImageComponent />
-          <ImageDescription />
-        </div>
+        <ImageComponent />
+        <ImageDescription />
       </div>
     );
   }

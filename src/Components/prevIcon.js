@@ -7,6 +7,8 @@ import leftArrow from "../leftArrow.png";
 class prevIcon extends React.Component {
   prevImage = () => {
     let tempDate = parseDate(this.props.apodPhotos.date);
+    console.log(new Date());
+    console.log(tempDate);
     this.date = tempDate.setDate(tempDate.getDate() - 1);
 
     let Finaldate = formatDate(tempDate);

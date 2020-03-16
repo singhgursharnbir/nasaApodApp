@@ -1,9 +1,4 @@
-import {
-  FETCH_APOD_IMAGE,
-  ADD_ERROR,
-  LOADED,
-  SHOW_MODAL
-} from "../actions/index";
+import { FETCH_APOD_IMAGE, ADD_ERROR, SHOW_MODAL } from "../actions/index";
 
 const intialState = {
   image: {
@@ -36,13 +31,6 @@ export default function(state = intialState, action) {
       return {
         error: action.error
       };
-
-    case LOADED:
-      return {
-        ...state,
-        loading: false
-      };
-
     case SHOW_MODAL:
       return {
         ...state,

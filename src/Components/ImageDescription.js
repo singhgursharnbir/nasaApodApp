@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchApodImage } from "../actions/ApodActions";
+import { formatDate } from "../common";
 
 class ImageDescription extends React.Component {
   componentDidMount() {
-    this.props.fetchApodImage();
+    this.props.fetchApodImage(formatDate(new Date()));
   }
-
   render() {
     return (
-      <div className="row">
+      <div className="row m-4">
         {!this.props.error ? (
           <div className="col-md-12">
             <div className="row justify-content-center mt-2">

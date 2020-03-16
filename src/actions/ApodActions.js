@@ -1,4 +1,5 @@
-import { FETCH_APOD_IMAGE, ADD_ERROR, LOADED, SHOW_MODAL } from "./index";
+import { FETCH_APOD_IMAGE, ADD_ERROR, SHOW_MODAL } from "./index";
+import { parseDate } from "../common";
 
 export const fetchApodImage = date => dispatch => {
   fetch(
@@ -14,7 +15,7 @@ export const fetchApodImage = date => dispatch => {
         dispatch({
           type: FETCH_APOD_IMAGE,
           payload: photoData,
-          date: date
+          date: parseDate(date)
         });
       }
     })
@@ -22,12 +23,6 @@ export const fetchApodImage = date => dispatch => {
       // Dispatch the generic "global errors" action
       dispatch({ type: ADD_ERROR, error: err });
     });
-};
-
-export const loaded = () => dispatch => {
-  dispatch({
-    type: LOADED
-  });
 };
 
 export const showModal = showModalState => dispatch => {
