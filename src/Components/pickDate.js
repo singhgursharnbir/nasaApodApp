@@ -19,10 +19,10 @@ class pickDate extends React.Component {
   render() {
     return (
       <div className="col-md-12 mb-2">
-        <span>Pick a date:</span>
+        <span className="font-weight-bold">Pick a date:</span>
         <span className="col-md-4">
           <DatePicker
-            className="form-control"
+            className="form-control font-weight-bold"
             dateFormat="yyyy-MM-dd"
             selected={this.props.date}
             onChange={this.changeDate}
