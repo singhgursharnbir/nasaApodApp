@@ -19,7 +19,7 @@ class pickDate extends React.Component {
   render() {
     return (
       <div className="col-md-12 mb-2">
-        <span className="font-weight-bold">Pick a date:</span>
+        <span className="font-weight-bold mr-2">Pick a date:</span>
         <span>
           <DatePicker
             className="form-control font-weight-bold"
