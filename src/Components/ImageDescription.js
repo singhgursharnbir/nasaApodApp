@@ -13,7 +13,7 @@ class ImageDescription extends React.Component {
         {!this.props.error ? (
           <div className="col-md-12">
             <div className="row justify-content-center mt-2">
-              <h2>{this.props.apodPhotos.title}</h2>
+              <h3>{this.props.apodPhotos.title}</h3>
             </div>
             <div className="row justify-content-center">
               <p>{this.props.apodPhotos.explanation}</p>
